@@ -1,0 +1,9 @@
+C:\Users\Manolo\Documents\casino-api\src\main\java\com\masiv\casinoapi\controllers\CasinoController.java
+C:\Users\Manolo\Documents\casino-api\src\main\java\com\masiv\casinoapi\services\CasinoService.java
+C:\Users\Manolo\Documents\casino-api\src\main\java\com\masiv\casinoapi\repositories\RouletteRepository.java
+C:\Users\Manolo\Documents\casino-api\src\main\java\com\masiv\casinoapi\configurators\RedisConfig.java
+C:\Users\Manolo\Documents\casino-api\src\main\java\com\masiv\casinoapi\entities\ObjectError.java
+C:\Users\Manolo\Documents\casino-api\src\main\java\com\masiv\casinoapi\entities\Roulette.java
+C:\Users\Manolo\Documents\casino-api\src\main\java\com\masiv\casinoapi\exeptions\CasinoException.java
+C:\Users\Manolo\Documents\casino-api\src\main\java\com\masiv\casinoapi\App.java
+C:\Users\Manolo\Documents\casino-api\src\main\java\com\masiv\casinoapi\services\impl\CasinoServiceImpl.java
