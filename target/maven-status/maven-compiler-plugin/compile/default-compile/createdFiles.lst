@@ -1,9 +1,0 @@
-com\masiv\casinoapi\entities\Roulette.class
-com\masiv\casinoapi\App.class
-com\masiv\casinoapi\configurators\RedisConfig.class
-com\masiv\casinoapi\exeptions\CasinoException.class
-com\masiv\casinoapi\services\CasinoService.class
-com\masiv\casinoapi\repositories\RouletteRepository.class
-com\masiv\casinoapi\entities\ObjectError.class
-com\masiv\casinoapi\controllers\CasinoController.class
-com\masiv\casinoapi\services\impl\CasinoServiceImpl.class
