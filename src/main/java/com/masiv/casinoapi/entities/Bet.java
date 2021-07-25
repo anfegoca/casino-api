@@ -15,6 +15,8 @@ public abstract class Bet{
 
     }
 
+    public abstract Bill collect(long number);
+
     public String getUserId() {
         return userId;
     }

@@ -3,6 +3,7 @@ package com.masiv.casinoapi.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 import org.springframework.data.redis.core.RedisHash;
@@ -34,6 +35,29 @@ public class Roulette implements Serializable{
         } else {
 
             return false;
+        }
+    }
+    private Long spin() {
+        Random random = new Random();
+        int winningNumber = random.nextInt(36) + 1;
+
+        return (long)winningNumber;
+    }
+
+    public List<Bill> close() {
+        if (!open) {
+
+            return null;
+        } else {
+            open=false;
+            List<Bill> bills = new ArrayList<>();
+            Long winningNumber = spin();
+            for (Bet b : bets) {
+                bills.add(b.collect(winningNumber));
+            }
+            bets.clear();
+
+            return bills;
         }
     }
 

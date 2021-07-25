@@ -68,4 +68,24 @@ public class CasinoController {
             return new ResponseEntity<>(new ObjectError(ex.getMessage()), HttpStatus.NOT_FOUND);
         }
     }
+
+    @RequestMapping(path = "/closeRoulette/{id}", method = RequestMethod.POST)
+    public ResponseEntity<?> closeRoulette(@PathVariable("id") UUID id){
+        try{
+            return new ResponseEntity<>(casinoService.closeRoulette(id), HttpStatus.ACCEPTED);
+        }catch(CasinoException ex){
+            return new ResponseEntity<>(new ObjectError(ex.getMessage()), HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @RequestMapping(path = "/getRoulettes", method = RequestMethod.GET)
+    public ResponseEntity<?> getRoulettes(){
+        try{
+            return new ResponseEntity<>(casinoService.getRoulettes(), HttpStatus.ACCEPTED);
+        }catch(CasinoException ex){
+            return new ResponseEntity<>(new ObjectError(ex.getMessage()), HttpStatus.NOT_FOUND);
+        }
+    }
+
+
 }
