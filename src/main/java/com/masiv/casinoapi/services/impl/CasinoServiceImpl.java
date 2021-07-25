@@ -26,5 +26,19 @@ public class CasinoServiceImpl implements CasinoService{
         }
     
     }
+
+    @Override
+    public void openRoulette(UUID id) throws CasinoException {
+        try{
+            Roulette roulette = rouletteRepository.findById(id).orElseThrow();
+            if( !roulette.open()){
+                throw new CasinoException(CasinoException.ROULETTE_ALREADY_OPEN);
+            }
+            rouletteRepository.save(roulette);
+        }catch(Exception e){
+            throw new CasinoException("Roulette could not be opened description: "+e.getMessage());
+        }
+       
+    }
     
 }
