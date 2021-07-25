@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -49,9 +48,20 @@ public class CasinoController {
     }
 
     @RequestMapping(path = "/betNumber/{id}", method = RequestMethod.POST)
-    public ResponseEntity<?> bet(@PathVariable("id") UUID id, @RequestHeader String userId, @RequestParam double value, @RequestParam long number){
+    public ResponseEntity<?> betNumber(@PathVariable("id") UUID id, @RequestHeader String userId, @RequestParam double value, @RequestParam long number){
         try{
             Bet bet = BetFactory.getInstance().createBet(userId, value, number);
+            casinoService.bet(id, bet);
+            return ResponseEntity.status(HttpStatus.CREATED).body(Collections.singletonMap("Response", "Success"));
+        }catch(CasinoException ex){
+            return new ResponseEntity<>(new ObjectError(ex.getMessage()), HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @RequestMapping(path = "/betColor/{id}", method = RequestMethod.POST)
+    public ResponseEntity<?> betColor(@PathVariable("id") UUID id, @RequestHeader String userId, @RequestParam double value, @RequestParam String color){
+        try{
+            Bet bet = BetFactory.getInstance().createBet(userId, value, color);
             casinoService.bet(id, bet);
             return ResponseEntity.status(HttpStatus.CREATED).body(Collections.singletonMap("Response", "Success"));
         }catch(CasinoException ex){

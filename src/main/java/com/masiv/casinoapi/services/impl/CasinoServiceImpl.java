@@ -7,6 +7,7 @@ import com.masiv.casinoapi.entities.Roulette;
 import com.masiv.casinoapi.exeptions.CasinoException;
 import com.masiv.casinoapi.repositories.RouletteRepository;
 import com.masiv.casinoapi.services.CasinoService;
+import com.masiv.casinoapi.services.factories.RouletteFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,7 +20,7 @@ public class CasinoServiceImpl implements CasinoService{
     @Override
     public UUID createRoulette() throws CasinoException{
         try{
-            Roulette roulette = new Roulette();
+            Roulette roulette = RouletteFactory.getInstance().createRoulette();
             rouletteRepository.save(roulette);
             return roulette.getId();
         }catch(Exception e){
