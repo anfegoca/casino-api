@@ -2,6 +2,7 @@ package com.masiv.casinoapi.services.impl;
 
 import java.util.UUID;
 
+import com.masiv.casinoapi.entities.Bet;
 import com.masiv.casinoapi.entities.Roulette;
 import com.masiv.casinoapi.exeptions.CasinoException;
 import com.masiv.casinoapi.repositories.RouletteRepository;
@@ -39,6 +40,20 @@ public class CasinoServiceImpl implements CasinoService{
             throw new CasinoException("Roulette could not be opened description: "+e.getMessage());
         }
        
+    }
+
+    @Override
+    public void bet(UUID id, Bet bet) throws CasinoException {
+        try{
+            Roulette roulette = rouletteRepository.findById(id).orElseThrow();
+            if(!roulette.bet(bet)){
+                throw new CasinoException(CasinoException.ROULETTE_CLOSE);
+            }
+            rouletteRepository.save(roulette);
+        }catch(Exception e){
+            throw new CasinoException("The bet could not be placed description: "+e.getMessage());
+        }
+        
     }
     
 }
