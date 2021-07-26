@@ -1,10 +1,8 @@
 package com.masiv.casinoapi.services.factories;
-
 import com.masiv.casinoapi.entities.Bet;
 import com.masiv.casinoapi.entities.BetColor;
 import com.masiv.casinoapi.entities.BetNumber;
 import com.masiv.casinoapi.exeptions.CasinoException;
-
 public class BetFactory {
     private static class helper {
         private static final BetFactory INSTANCE = new BetFactory();
@@ -33,5 +31,4 @@ public class BetFactory {
             return new BetColor(userId, value, color);
         }
     }
-
 }

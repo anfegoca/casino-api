@@ -1,7 +1,5 @@
 package com.masiv.casinoapi.entities;
-
 import com.masiv.casinoapi.services.factories.BillFactory;
-
 public class BetNumber extends Bet{
     private Long number;
     public BetNumber(String userId, double value, long number) {
@@ -15,10 +13,10 @@ public class BetNumber extends Bet{
         return BillFactory.getInstance().createBill(userId, gain);
     }
     public long getNumber() {
+
         return number;
     }
     public void setNumber(long number) {
         this.number = number;
     }
-    
 }

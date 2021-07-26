@@ -1,5 +1,4 @@
 package com.masiv.casinoapi.entities;
-
 public class Bill {
     private String userId;
     private double gain;
@@ -8,16 +7,17 @@ public class Bill {
         this.gain = gain;
     }
     public String getUserId() {
+
         return userId;
     }
     public void setUserId(String userId) {
         this.userId = userId;
     }
     public double getGain() {
+        
         return gain;
     }
     public void setGain(double gain) {
         this.gain = gain;
     }
-    
 }

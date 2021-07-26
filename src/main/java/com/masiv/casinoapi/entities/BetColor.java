@@ -1,7 +1,5 @@
 package com.masiv.casinoapi.entities;
-
 import com.masiv.casinoapi.services.factories.BillFactory;
-
 public class BetColor extends Bet{
     private String color;
     public BetColor(String userId, double value, String color) {
@@ -18,11 +16,10 @@ public class BetColor extends Bet{
         return BillFactory.getInstance().createBill(userId, gain);
     } 
     public String getColor() {
+
         return color;
     }
     public void setColor(String color) {
         this.color = color;
     }
-    
-    
 }
